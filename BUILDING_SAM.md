@@ -49,9 +49,7 @@ If you plan to automate the deployment through your own infrastructure, deploy m
 
     ```bat
     rem Windows
-    sam package --template-file .\cloudformation\template.yaml ^
-        --output-template-file .\cloudformation\packaged.yaml ^
-        --s3-bucket "YOUR_LAMBDA_ARTIFACTS_BUCKET"
+    sam package --template-file .\cloudformation\template.yaml --output-template-file .\cloudformation\packaged.yaml --s3-bucket "endeavour-predict-lambda-artifacts"
     ```
 
     Do *not* run the `sam deploy` command suggested by the output of the above. While it works most of the time, it doesn't work if you need to customize anything, as we will need to.
@@ -74,12 +72,12 @@ If you plan to automate the deployment through your own infrastructure, deploy m
     rem Windows
     sam deploy --template-file .\cloudformation\packaged.yaml ^
         --stack-name "dev-portal" ^
-        --s3-bucket "YOUR_LAMBDA_ARTIFACTS_BUCKET" ^
+        --s3-bucket "endeavour-predict-lambda-artifacts" ^
         --capabilities CAPABILITY_NAMED_IAM ^
         --parameter-overrides ^
-        DevPortalSiteS3BucketName="YOUR_CUSTOM_PREFIX-dev-portal-static-assets" ^
-        ArtifactsS3BucketName="YOUR_CUSTOM_PREFIX-dev-portal-artifacts" ^
-        CognitoDomainNameOrPrefix="YOUR_CUSTOM_PREFIX"
+        DevPortalSiteS3BucketName="endeavour-predict-dev-portal-static-assets" ^
+        ArtifactsS3BucketName="endeavour-predict-dev-portal-artifacts" ^
+        CognitoDomainNameOrPrefix="endeavour-predict"
     ```
 
     > Note: [`CAPABILITY_NAMED_IAM` is a value required by SAM, not a placeholder.](https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/sam-cli-command-reference-sam-deploy.html)

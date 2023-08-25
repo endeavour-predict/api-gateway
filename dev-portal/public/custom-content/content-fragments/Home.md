@@ -1,12 +1,12 @@
 ---
-title: Developer Portal
-header: Developer Portal
-tagline: Your gateway to the data.
+title: Endeavour Predict
+header: Endeavour Predict
+tagline: Putting patients in control of their futures
 gettingStartedButton: Get Started
-apiListButton: Our APIs
+apiListButton: Prediction Algorithms
 ---
 
-### EXPLORE AND BUILD
+### ABOUT ENDEAVOUR PREDICT
         
 Read the Getting Started guide to learn how to hit the ground running to get an application up and running in no time.
 
